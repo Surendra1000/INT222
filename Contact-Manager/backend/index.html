@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factorial Calculator</title>
+</head>
+<body>
+  <h1>Factorial Calculator</h1>
+  <input type="number" id="numberInput" placeholder="Enter a number">
+  <button id="calculateButton">Calculate</button>
+  <p id="result"></p>
+
+  <script src="/server.js"></script>
+
+  <script>
+    const numberInput = document.getElementById('numberInput');
+    const calculateButton = document.getElementById('calculateButton');
+    const result = document.getElementById('result');
+
+    calculateButton.addEventListener('click', () => {
+      const number = numberInput.value;
+      // Send the number to the server using fetch or XMLHttpRequest
+      fetch('/calculate?number=' + number)
+        .then(response => response.text())
+        .then(data => {
+          result.textContent = data;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          result.textContent = 'Error calculating factorial.';
+        });
+    });
+  </script>
+</body>
+</html>

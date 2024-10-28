@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Input</title>
+</head>
+<body>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button id="calculateButton">Calculate Square</button>
+    <p id="output"></p>
+
+    <script>
+        // Function to perform the calculation
+        function calculate() {
+            // Get the value entered by the user
+            var number = document.getElementById('numberInput').value;
+
+            // Perform the calculation (square the number)
+            var result = parseInt(number) * parseInt(number);
+
+            // Display the result
+            document.getElementById('output').innerText = "Square of " + number + " is: " + result;
+        }
+
+        // Event listener for the button click event
+        document.getElementById('calculateButton').addEventListener('click', calculate);
+    </script>
+</body>
+</html>
